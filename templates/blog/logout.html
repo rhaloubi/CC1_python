@@ -1,0 +1,27 @@
+{% extends 'blog/base.html' %}
+
+{% block title %}Déconnexion - Blog Personnel{% endblock %}
+
+{% block content %}
+    <div class="card mb-4 animate__animated animate__fadeIn">
+        <div class="card-header bg-warning text-white">
+            <h2><i class="fas fa-sign-out-alt me-2"></i>Déconnexion</h2>
+        </div>
+        <div class="card-body">
+            <div class="alert alert-warning animate__animated animate__pulse">
+                <p><i class="fas fa-exclamation-triangle me-2"></i> Êtes-vous sûr de vouloir vous déconnecter ?</p>
+            </div>
+            <form method="POST">
+                {% csrf_token %}
+                <div class="d-grid gap-2">
+                    <button type="submit" class="btn btn-warning animate__animated animate__pulse">
+                        <i class="fas fa-sign-out-alt me-2"></i>Confirmer la déconnexion
+                    </button>
+                    <a href="{% url 'blog-home' %}" class="btn btn-outline-secondary">
+                        <i class="fas fa-times me-2"></i>Annuler
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %} 
